@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User app</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'travel_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+
+  <div id="wrapper">
+    <div id="header">
+      <div id="left">
+      <h3>Welcome, {{request.session.user_data.name}}!</h3>
+      </div>
+
+      <div id="right">
+        <a href="/travels/logout">Logout</a>
+      </div>
+    </div>
+    <div id="main">
+      <h3>Your Trip Schedules </h3>
+      <table>
+        <thead>
+          <th>Destination</th>
+          <th>Travel Start Date</th>
+          <th>Travel End Date</th>
+          <th>Plan</th>
+        </thead>
+
+        <tbody>
+          {% for row in records %}
+          <tr>
+            <td><a href="destination/{{row.id}}">{{row.destination}}</a></td>
+            <td>{{row.travel_date_from}}</td>
+            <td>{{row.travel_date_to}}</td>
+            <td>{{row.description}}</td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+
+      </table>
+
+      <h3>Other Users' Travel plans </h3>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Destination</th>
+          <th>Travel Start Date</th>
+          <th>Travel End Date</th>
+          <th>Do you want to join?</th>
+
+
+        </thead>
+
+        <tbody>
+          {% for row in others %}
+          <tr>
+            <td>{{row.planned_by__name}}</td>
+            <td><a href="destination/{{row.id}}">{{row.destination}}</a></td>
+            <td>{{row.travel_date_from}}</td>
+            <td>{{row.travel_date_to}}</td>
+            <td>
+              <a href = "join/{{row.id}}">Join</a>
+
+            </td>
+
+
+          </tr>
+
+          {% endfor %}
+        </tbody>
+
+      </table>
+
+      <a href="/travels/add" id="add_travel"> Add Travel Plan</a>
+    </div>
+  </div>
+</body>
+</html>

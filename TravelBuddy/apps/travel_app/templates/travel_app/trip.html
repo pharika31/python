@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User app</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'travel_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+
+  <div id="wrapper">
+    <div id="header">
+      <div id="left">
+      </div>
+      <div id="right">
+        <a href = "/travels">Home</a>
+        <a href="/travels/logout">Logout</a>
+      </div>
+    </div>
+    <div id="main">
+      {% for row in trip%}
+      <h2>{{row.destination}}</h2>
+      <p>Planned By: {{row.planned_by__name}}</p>
+      <p>Description: {{row.description}}</p>
+      <p>Travel Date From: {{row.travel_date_from}}</p>
+      <p>Travel Date To: {{row.travel_date_to}}</p>
+      {% endfor %}
+      <h2>Other users joining the trip:</h2>
+      {% for row in others %}
+        <p>{{row.joined_by__name}}</p>
+      {% endfor %}
+    </div>
+  </div>
+  </body>
+  </html>

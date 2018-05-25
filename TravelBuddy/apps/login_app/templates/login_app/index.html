@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Travel Buddy app</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'login_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+
+  <div id="wrapper">
+    {% if messages %}
+	   {% for message in messages %}
+		   <p class=messages>{{message}}</p>
+	      {% endfor %}
+        {% endif %}
+      <h1>Welcome!</h1>
+      <div id="register">
+        <fieldset>
+            <legend>Register</legend>
+            <form action="/register" method="post">
+            	{% csrf_token %}
+            	<p><label for ="name">Name:</label><input type="text" name="name" id="name"/></p>
+            	<p><label for ="username">Username:</label><input type="text" name="username" id="username"/></p>
+            	<p><label for ="password">Password:</label><input type="password" name="password" id="password"/></p>
+              <p>*password should be at least 8 characters</p>
+            	<p><label>Confirm Password:</label><input type="password" name="pw_confirm" id="pw_confirm"/></p>
+            	<p><input type="submit" value="Register"/></p>
+            </form>
+          </fieldset>
+      </div>
+      <div id="login">
+        <fieldset>
+          <legend>Login</legend>
+
+            <form action="/login" method="post">
+            	{% csrf_token %}
+            	<p><label for = "username">Username:</label><input type="text" name="username"></p>
+            	<p><label for = "password">Password:</label><input type="password" name="password"></p>
+            	<p><input type="submit" value="Login"></p>
+            </form>
+        </fieldset>
+      </div>
+  </div>
+</body>
+</html>

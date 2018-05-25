@@ -1,0 +1,77 @@
+*{
+  margin:0px;
+  padding:0px;
+}
+#wrapper{
+  
+  padding: 10px;
+  margin: 0 auto;
+}
+
+h1{
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+p{
+  margin-bottom: 10px;
+}
+.messages{
+  color: red;
+}
+.green{
+  color: green;
+}
+fieldset{
+
+  padding: 10px;
+}
+legend{
+  font-weight:bold;
+}
+label{
+  width:100px;
+  padding-right: 50px;
+  display: inline-block;
+}
+#register{
+  display: inline-block;
+  width:500px;
+  height:400px;
+}
+#login{
+  display: inline-block;
+  width:400px;
+  height:400px;
+  vertical-align: top;
+}
+
+input{
+  float: right;
+}
+input[type=submit] {
+    width: 150px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+}
+
+td, th {
+    border-right: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
